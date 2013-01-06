@@ -1,4 +1,4 @@
 ovatsug25.github.com
 ====================
 
-This is me blog!
+About to become my main presence on the web!
