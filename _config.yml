@@ -1,0 +1,4 @@
+markdown: rdiscount
+pygments: true
+# exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+# permalink: /:categories/:year/:month/:day/:title
