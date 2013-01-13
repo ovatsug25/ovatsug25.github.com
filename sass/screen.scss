@@ -1,0 +1,16 @@
+//The Two formats of Sass
+//scss & sass
+//scss is the OK with css file format (Also known as Sassy CSS)
+//sass is (indented syntax)
+.portrait{
+  //Allows other elements to appear on the side
+  float: left;
+  //If alone, will force next elements onto new line
+  display: block;
+  //correct reference, fixed
+  background: url('/images/2013-01-07-portrait.jpg');
+  //because element is empty, both height and width need to be specified
+  //otherwise element is collapsed
+  height: 200px;
+  width: 200px;
+}
