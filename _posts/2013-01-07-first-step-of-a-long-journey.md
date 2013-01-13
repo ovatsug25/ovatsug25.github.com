@@ -1,7 +1,8 @@
+---
 layout: post
 title: The first step of a long journey...
 time: 1:20am
--
+---
 
 {{ page.title }}
 ================

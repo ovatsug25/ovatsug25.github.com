@@ -1,7 +1,8 @@
+---
 layout: post
 title: North Stars
 time: 12:33
--
+---
 
 <div id="article">
 	<p>When I applied to Phillips Academy, one of the essays asked us to pick three famous historical figures we would like to have lunch with. To describe who I would like to become, I decided I would rather pick three people than say something particularly about what I want to do. There are a few people whom I have to leave out, like Richard Fenyman and Paul Graham, but they still made it in anyway ;)</p>
