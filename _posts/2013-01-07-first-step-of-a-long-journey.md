@@ -1,7 +1,8 @@
 ---
 layout: post
-title: The first step of a long journey...
+title: "Week 1 in the Measured Life: The first step of a long journey..."
 time: 1:20am
+location: Suburbs of Santo Domingo, RD
 ---
 
 {{ page.title }}

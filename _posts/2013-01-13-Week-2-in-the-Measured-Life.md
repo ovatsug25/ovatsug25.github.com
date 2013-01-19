@@ -1,9 +1,12 @@
 ---
 layout: post
-title: Week 2 in the Measured Life: In which exercise proves to be neccesary,
-and where perspective begins to take hold
-time:
+title: "Week 2 in the Measured Life: In which exercise proves to be neccesary, and where perspective begins to take hold"
+time: unknown
+location: Suburbs of Santo Domingo, RD
 ---
+
+{{ page.title }}
+================
 
 _highlights_of_each_weekday_
 sunday--it took some time, but I finally fleshed out my ideas for recording my life.
