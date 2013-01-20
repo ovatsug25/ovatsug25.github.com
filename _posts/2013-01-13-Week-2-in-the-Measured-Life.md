@@ -8,7 +8,7 @@ location: Suburbs of Santo Domingo, RD
 {{ page.title }}
 ================
 
-### _highlights_of_each_weekday_
+### highlights of each weekday
 
 ***sunday***--it took some time, but I finally fleshed out my ideas for recording my life.
 
