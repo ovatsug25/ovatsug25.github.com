@@ -26,10 +26,15 @@ location: Suburbs of Santo Domingo, RD
 
 
 __things_i_decided_to_pursue__
+
 -more education
+
 -finish codeschool
+
 -learn how to actually design
+
 -decide to type out ActiveRecord, Devise, etc...
+
 -lazyGeneral brand
 
 __exercise_report__
