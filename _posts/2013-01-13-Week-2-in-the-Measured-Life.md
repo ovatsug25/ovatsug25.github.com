@@ -8,14 +8,22 @@ location: Suburbs of Santo Domingo, RD
 {{ page.title }}
 ================
 
-_highlights_of_each_weekday_
-sunday--it took some time, but I finally fleshed out my ideas for recording my life.
-monday--have marcos & richard over for a visit
-tuesday--everything went well! except the blisters
-wednesday--inaction seeped into life from lack of exercise
-thursday--blowup discussion w/ mom
-friday--implement devise, choose to do business logic, inspiration from jose valim
-saturday--news of Aaron Swartz's death, shock at the closeness, inspiration from his purity
+### _highlights_of_each_weekday_
+
+***sunday***--it took some time, but I finally fleshed out my ideas for recording my life.
+
+***monday***--have marcos & richard over for a visit
+
+***tuesday***--everything went well! except the blisters
+
+***wednesday***--inaction seeped into life from lack of exercise
+
+***thursday***--blowup discussion w/ mom
+
+***friday***--implement devise, choose to do business logic, inspiration from jose valim
+
+***saturday***--news of Aaron Swartz's death, shock at the closeness, inspiration from his purity
+
 
 __things_i_decided_to_pursue__
 -more education
