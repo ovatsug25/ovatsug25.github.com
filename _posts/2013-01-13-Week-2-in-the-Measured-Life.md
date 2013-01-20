@@ -40,13 +40,13 @@ __things_i_decided_to_pursue__
 __exercise_report__
 5 out of 7 for a satisfactory outcome! actually, im really suprised by this. i thought i had done so much less becauae of the irregularity of them. frequency is defidentley very important.
 
-sunday:    yes
-monday:    yes
-tuesday:   yes
-wednesday: no
-thursday:  yes
-friday:    no
-saturday:  yes
+-sunday:    yes
+-monday:    yes
+-tuesday:   yes
+-wednesday: no
+-thursday:  yes
+-friday:    no
+-saturday:  yes
 
 __sleep__
 sunday:    --:--  01:49
