@@ -2,16 +2,70 @@
 <html lang="en">
   <head>
     <title>{{page.title}}</title>
-    <link rel="stylesheet" href="/css/screen.css">
+    <!-- <link rel="stylesheet" href="/css/screen.css"> -->
+    <link rel="stylesheet" href="/css/mastwrap.css">
+    <link rel="stylesheet" href="/css/essay.css">
+    <link rel="stylesheet" href="/css/images.css">
+    <style>
+      .group:before,
+      .group:after {
+        content: "";
+        display: table;
+      }
+
+      .group:after {
+        clear: both;
+      }
+
+      .group {
+        zoom: 1; // IE 6 & 7
+      }
+
+
+      footer.footer-main {
+        margin: 0px 0px 0px 15px;
+      }
+    </style>
   </head>
+
   <body>
-    <div id="fb-root" style="display:none;"></div>
-    <div id="mastwrap">
-      {% include header.html %}
+    <div id="masthead" class="group">
+      <div class="headline">
+        <h1>Gustavo Tavares</h1>
+        <h3>Inspired by Dragonfruit</h3>
+      </div>
+      <div class="hylotron"></div>
     </div>
-      {{ content }}
-    <footer class="footer-main">
-      Gustavo Tavares 2013
-    </footer>
+
+    <div id="body">
+      <div id="poems" class="section">
+        <div class="menu">
+          <h1>Poems</h1>
+          <h3>Recent</h3>
+        </div>
+        <div class="sample">
+        </div>
+      </div>
+      <div id="essays" class="section">
+        <div class="menu">
+          <h1>Essays</h1>
+        </div>
+      </div>
+      <div id="maps" class="section">
+        <h1>Maps</h1>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>
+        <a href=""><img src="/images/GitHub-Mark/PNG/GitHub-Mark-32px.png"></img></a>
+        <a href=""><img src="/images/LinkedIn-Logo/InBug-30px-R.png"></img></a>
+        <a href=""><img src="/images/TwitterLogo/Twitter_logo_blue_32px.png"></img></a>
+      </div>
+      <div id="copyright">
+        Gustavo Tavares 2013
+      </div>
+    </div>
   </body>
+
 </html>
