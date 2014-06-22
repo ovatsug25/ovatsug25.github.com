@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <title>{{page.title}}</title>
-    <!-- <link rel="stylesheet" href="/css/screen.css"> -->
-    <link rel="stylesheet" href="/css/mastwrap.css">
-    <link rel="stylesheet" href="/css/essay.css">
-    <link rel="stylesheet" href="/css/images.css">
+    {% stylesheet mastwrap %}
     <style>
       .group:before,
       .group:after {
         content: "";
         display: table;
       }
-
       .group:after {
         clear: both;
       }
-
       .group {
         zoom: 1; // IE 6 & 7
       }
-
+      .sidebar {
+        width: 150px;
+      }
       .menu a {
         display: block;
       }
-
+      .sgd {
+        float: left;
+        display: block;
+        width: 400px;
+      }
       footer.footer-main {
         margin: 0px 0px 0px 15px;
+      }
+      .footer {
+        clear: both;
       }
     </style>
   </head>
@@ -40,51 +45,26 @@
       <div class="hylotron"></div>
     </div>
 
-    <div id="body">
+    <div class="sidebar menu">
       <div id="poems" class="section">
-        <div class="menu">
-          <h1>Poems</h1>
-          <a href="/poems/attack_on_whitman.md">Attack on Whitman</a>
-          <a href="/poems/drugs.md">Drugs</a>
-          <a href="/poems/protect_me_from_mother.md">Protect Me From Mother</a>
-          <a href="/poems/rebirth.md">Rebirth</a>
-          <a href="/poems/talking_to_the_suicidal.md">Talking to the Suicidal</a>
-        </div>
-        <div class="sample">
-        </div>
-      </div>
-      <div id="essays" class="section">
-        <!-- <a>Putting the Cart Before the Horse: The Teaching of STEM</a> -->
-        <!-- <a>Get ready for the long jump: Take a step back</a> -->
-        <div class="menu">
-          <h1>Success Guide</h1>
-          <p>
-          Written in Spring 2012, I would love to update and revise it. The energy is there though!
-          </p>
-          1 - Be comfortable in your skin. Defend yourself. And then give of yourself Be generous.
-          2 - You can be comfortable and still have a problem. Don't be afraid to tackle it. Be crafty.
-          3 - That problem of yours is pretty hard no? There will be things you need to learn through experimentation and repetition. Also be lazy. The cleverness will follow.
-          4 - Seeds need water, soil, sun, and protection. Things don't grow by themselves. A plant is more beautiful in a garden.
-          5 -
-          <a>Building Block 1: Self</a>
-          <a>Building Block 2: Enterprenurship</a>
-          <a>Building Block 3: Engineering</a>
-          <a>Building Block 4: Team</a>
-          <a>Building Block 5: Get Hungry
-        </div>
+        <h1>Poems</h1>
+        <a href="/poems/attack_on_whitman.md">Attack on Whitman</a>
+        <a href="/poems/drugs.md">Drugs</a>
+        <a href="/poems/protect_me_from_mother.md">Protect Me From Mother</a>
+        <a href="/poems/rebirth.md">Rebirth</a>
+        <a href="/poems/talking_to_the_suicidal.md">Talking to the Suicidal</a>
       </div>
     </div>
 
-    <div class="footer">
-      <div>
-        <a href=""><img src="/images/GitHub-Mark/PNG/GitHub-Mark-32px.png"></img></a>
-        <a href=""><img src="/images/LinkedIn-Logo/InBug-30px-R.png"></img></a>
-        <a href=""><img src="/images/TwitterLogo/Twitter_logo_blue_32px.png"></img></a>
-      </div>
-      <div id="copyright">
-        Gustavo Tavares 2013
-      </div>
+    <div class="success-guide">
+      <h1>Success Guide</h1>
+      {% include success_guide_menu.html %}
+      {% include success_guide_story.html %}
     </div>
+
+    {{ content }}
+    {% include footer.html %}
+
   </body>
 
 </html>

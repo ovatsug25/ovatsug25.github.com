@@ -6,15 +6,7 @@ use Rack::Deflater
 
 # redirect (permanently) old urls from press and such
 use Rack::Rewrite do
-  r301 '/index.php', '/'
-  r301 '/products.php', '/fulcrum'
-  r301 '/our-company/news', 'http://blog.federatedsample.com'
-  r301 '/our-company/leadership', '/about'
-  r301 '/careers.php', '/careers'
-  r301 '/blog.html', 'http://blog.federatedsample.com'
-  r301 '/our-technology', '/fulcrum'
-  r301 '/our-company', '/about'
-  r301 '/bidbetter', 'http://info.federatedsample.com/bid-manager-demo'
+  # r301 '/here', '/there'
 end
 
 use Rack::TryStatic,
