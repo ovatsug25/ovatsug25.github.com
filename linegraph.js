@@ -35,7 +35,7 @@ var line = d3.svg.line()
 
 
 
-d3.csv("gdpPerCapitaNoNull.csv", function(errors, data) {
+d3.csv("/data/gdpPerCapitaNoNull.csv", function(errors, data) {
     data.forEach(function(uncollected) {
         var collected = [];
         for (var i = 1960; i < 2013; i++) {
