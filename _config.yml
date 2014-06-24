@@ -41,8 +41,8 @@ relative_permalinks: true
 permalink: /:categories/:title
 
 permalink:     date
-paginate_path: 'page:num'
-paginate:      nil
+# paginate_path: 'page:num'
+# paginate:      nil
 
 markdown:      kramdown
 markdown_ext:  markdown,mkdown,mkdn,mkd,md
