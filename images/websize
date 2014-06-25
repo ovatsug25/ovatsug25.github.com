@@ -5,7 +5,8 @@ var child;
 function resize(file,size,ext){
   ext = ext || path.extname(file).slice(1);
   name = path.basename(file, ext);
-  cmd = 'sips -s format '+ext+' -Z '+size+' '+file+' --out '+name+size+'px.'+ext;
+  // cmd = 'sips -s format '+ext+' -Z '+size+' '+file+' --out '+name+size+'px.'+ext;
+  cmd = 'sips -s format '+ext+' --resampleHeight '+size+' '+file+' --out '+name+size+'px.'+ext;
   console.log(name);
   console.log(ext);
   console.log(cmd);
@@ -24,5 +25,5 @@ userArgs = process.argv.slice(2);
 
 for (var i in userArgs){
   console.log(userArgs[i]);
-  webSize(userArgs[i]);
+  webSize(userArgs[i], 'png');
 }
