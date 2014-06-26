@@ -16,18 +16,6 @@ defaults:
       path: "success_guide"
     values:
       layout: "success_guide_index"
-# defaults:
-#   -
-#     scope:
-#       path: "success_guide/"
-#     values:
-#       layout: "success_guide_index"
-# defaults:
-#   -
-#     scope:
-#       path: "success_guide/"
-#     values:
-#       layout: "success_guide_index.html"
 collections:
   success_guide:
     output: true
