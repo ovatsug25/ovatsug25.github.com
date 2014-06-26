@@ -83,14 +83,17 @@ d3.csv("/data/gdpPerCapitaNoNull.csv", function(errors, data) {
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis);
 
-    svg.append("g")
+    var yAxisLabel = svg.append("g")
         .attr("class", "y axis")
         .call(yAxis)
         .append("text")
-        .attr("transform", "rotate(-90)")
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
         .text("GDP per Capita");
-
+    if (xAxisTicks > 3){
+      yAxisLabel.attr("transform", "rotate(-90)");
+    } else {
+      yAxisLabel.attr("x", "120");
+    }
 });
