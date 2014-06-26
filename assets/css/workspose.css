@@ -5,6 +5,9 @@
 }
 
 /* workspose-cube */
+.workspose a {
+  color: #3B0D6A; /* purp-darkest */
+}
 
 .workspose-cube {
   font-family: serif;
@@ -13,7 +16,7 @@
   float: left;
   margin: 2.5px 2.5px 2.5px 2.5px;
   padding: 10px 10px 10px 10px;
-  background-color: #76B2F5;
+  background-color: #FFF892;
   border-radius: 6px;
 }
 

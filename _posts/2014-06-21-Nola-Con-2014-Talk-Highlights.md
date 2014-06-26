@@ -1,18 +1,10 @@
-What I learned at NolaCon
-=========================
+---
+layout: sidebar
+title: NolaCon 2014 Highlights
+---
 
-So fast forward, it’s Saturday, and a day of NolaCon has gone by. Before that, I did two days of pen testing with the awesome @GeorgiaWeidamn.
-
-Many things have been learned and this is a quick summary. As an econ major who learned web development and did some intro classes, this was quite an eye opening experience.
-
-Security definitely made a big impression on me, on the one hand because it’s very obvious how it can be important to the business even though it is in general auxiliary to its day to day operation. It also has this sexy
-
-List of Contents:
-
-Pen Testing - Day 1
-Pen Testing - Day 2
-
-Saturday Events:
+NolaCon 2014 Highlights
+=======================
 
 Evan Booth Keynote: Terminal Cornucopia: Demystifying the Mullet
 “Ideas are raw material”

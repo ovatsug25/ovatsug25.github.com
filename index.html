@@ -21,12 +21,14 @@ title: Gustavo Tavares - Inspired by Dragon Fruit
       </div>
       <div class="blog row">
         <h3 class="headline" >Updates</h3>
+        <ul class="no-bullet">
         {% for post in site.posts %}
         <li>
-        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }} ---</span>
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </li>
         {% endfor %}
+      </ul>
       </div>
     </div>
   </div>
