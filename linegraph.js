@@ -6,6 +6,9 @@ var margin = {
 };
 
 var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+if (width > 480){
+  width = 480;
+}
 width = width - margin.left - margin.right;
 var height = width/1.92;
 
