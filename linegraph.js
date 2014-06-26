@@ -6,8 +6,11 @@ var margin = {
 };
 
 var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+var xAxisTicks = 5;
 if (width > 480){
   width = 480;
+} else {
+  xAxisTicks = 3;
 }
 width = width - margin.left - margin.right;
 var height = width/1.92;
@@ -25,7 +28,7 @@ var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom")
     .tickFormat(d3.format("04d"))
-    .ticks(5);
+    .ticks(xAxisTicks);
 
 var yAxis = d3.svg.axis()
     .scale(y)
