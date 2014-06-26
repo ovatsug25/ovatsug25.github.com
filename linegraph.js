@@ -5,8 +5,9 @@ var margin = {
     left: 70
 };
 
-var width = 480 - margin.left - margin.right;
-var height = 250 - margin.roof - margin.bottom;
+var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+width = width - margin.left - margin.right;
+var height = width/1.92;
 
 var svg = d3.select("#linegraph").append("svg")
     .attr("width", width + margin.left + margin.right)
