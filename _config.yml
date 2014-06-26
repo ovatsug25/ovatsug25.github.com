@@ -5,6 +5,44 @@ title: "Inspired by Dragon Fruit"
 baseurl: ""
 url: http://hylotron.com
 
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "sidebar.html"
+  -
+    scope:
+      path: "success_guide"
+    values:
+      layout: "success_guide_index"
+# defaults:
+#   -
+#     scope:
+#       path: "success_guide/"
+#     values:
+#       layout: "success_guide_index"
+# defaults:
+#   -
+#     scope:
+#       path: "success_guide/"
+#     values:
+#       layout: "success_guide_index.html"
+collections:
+  success_guide:
+    output: true
+    layout: "success_guide_index"
+    # label:
+    # relative_directory:
+    # directory:
+    # output:
+    # DOCUMENT
+      # content:
+      # output:
+      # path:
+      # relative_path:
+      # url:
+
 gems:
 - jekyll-mentions
 - jemoji
@@ -29,8 +67,8 @@ exclude:
   - gems
 keep_files:  ['.git','.svn']
 # gems:        []
-timezone:    nil
-encoding:    nil
+# timezone:    nil
+encoding:    utf-8
 
 future:      true
 show_drafts: nil
@@ -51,8 +89,6 @@ textile_ext:   textile
 excerpt_separator: "\n\n"
 
 safe:        false
-watch:       false    # deprecated
-server:      false    # deprecated
 host:        0.0.0.0
 port:        3008
 baseurl:     ""
