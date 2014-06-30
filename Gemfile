@@ -1,16 +1,19 @@
-source 'https://rubygems.org'
+# If you have OpenSSL installed, we recommend updating
+# the following line to use "https"
+source 'http://rubygems.org'
 
-gem 'jekyll'
+gem "middleman", "~>3.3.3"
+gem "middleman-blog", "~>3.5.3"
+gem "middleman-syntax", "~>2.0.0"
 
-gem 'jekyll-assets'
-gem 'jekyll-mentions'
-gem 'jemoji'
-gem 'jekyll-redirect-from'
-gem 'jekyll-sitemap'
+gem "tilt"
+gem "liquid"
 
-gem 'coffee-script'
-gem 'uglifier'
-gem 'sass'
+# Live-reloading plugin
+gem "middleman-livereload", "~> 3.1.0"
 
-gem 'rack-contrib'
-gem 'rack-rewrite'
+# For faster file watcher updates on Windows:
+gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
+
+# Windows does not come with time zone data
+gem "tzinfo-data", platforms: [:mswin, :mingw]
