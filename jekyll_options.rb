@@ -1,38 +1,3 @@
-# module Jekyll
-#
-#   class SuccessGuidePage < Page
-#     def initialize(site, base, dir, success_guide)
-#       @site = site
-#       @base = base
-#       @dir = dir
-#       @name = 'index.html'
-#
-#       self.process(@name)
-#       self.read_yaml(File.join(base, '_layouts'), 'success_guide_index.html')
-#       self.data['success_guide'] = success_guide
-#
-#       success_guide_title_prefix = site.config['success_guide_title_prefix'] || 'Success Guide: '
-#       self.data['title'] = "#{success_guide_title_prefix}#{title}"
-#     end
-#   end
-#
-#   class SuccessGuidePageGenerator < Generator
-#     safe true
-#
-#     def generate(site)
-#       # dirs = site.read_directories
-#       if site.layouts.key? 'success_guide_index'
-#         dir = site.config['success_guide_dir'] || 'success_guide'
-#         puts site.methods
-#         # site.success_guide.keys.each do |success_guide|
-#         #   site.pages << SuccessGuidePage.new(site, site.source, File.join(dir, success_guide), success_guide)
-#         # end
-#       end
-#     end
-#   end
-#
-# end
-#
 # # config
 # #   layouts
 # #   posts

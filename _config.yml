@@ -9,11 +9,13 @@ defaults:
   -
     scope:
       path: ""
+      type: "page"
     values:
       layout: "sidebar.html"
   -
     scope:
       path: "success_guide"
+      type: "page"
     values:
       layout: "success_guide_index"
 collections:
