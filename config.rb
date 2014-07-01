@@ -1,4 +1,5 @@
 require 'tilt/liquid'
+require 'middleman-gh-pages'
 # Features enabled by default
 # enable :compass
 # enable :sprockets
@@ -15,7 +16,20 @@ require 'tilt/liquid'
 # disable :minify_javascript
 # disable :cache_buster
 
-activate :blog
+activate :blog do |blog|
+  blog.name = "updates"
+  blog.prefix = "updates"
+  blog.layout = "sidebar"
+  # blog.sources = "{year}-{month}-{day}-{title}.md"
+  # blog.prefix = "blog"
+  # blog.permalink = "blog/{year}/{title}.html"
+  # calendar_template
+  # year_template
+  # month_template
+  # day_template
+  # tag_template
+end
+activate :livereload
 activate :syntax, :line_numbers => true
 
 configure :development do

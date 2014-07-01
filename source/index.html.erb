@@ -21,6 +21,12 @@ title: Gustavo Tavares - Inspired by Dragon Fruit
       <div class="blog row">
         <h3 class="headline" >Updates</h3>
         <ul class="no-bullet">
+          <% blog.articles[0...5].each do |post| %>
+            <li>
+            <span class="post-date"><%= post.date.strftime("%b %-d, %Y") %> ---</span>
+            <a class="post-link" href="<%= post.url %>"><%= post.title %></a>
+            </li>
+          <% end %>
       </ul>
       </div>
     </div>
