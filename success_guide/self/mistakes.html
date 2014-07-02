@@ -1,4 +1,42 @@
-<div id="article">
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <<title></title>
+    <link href="/assets/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/foundation.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/workspose.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/main.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width" />
+    <script>
+      var angle = 0, img = document.getElementById('hylotron');
+      document.getElementById('hylotron').onclick = function() {
+        angle = (angle+90)%360;
+        img.className = "rotate"+angle;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+        <div class="top-bar purp-darkest" data-topbar>
+    <div class="row" data-topbar>
+      <div class="small-1 columns"><br/></div>
+      <div class="hylotron-120 small-1 columns"></div>
+      <div class="headline small-6 columns left">
+        <h1 style="font-family:andale mono;color: #A079C8; text-align:center;text-shadow: -1px 0 #663399, 0 1px #663399, 1px 0 #663399, 0 -1px #663399;">
+          <!-- &#45;webkit&#45;text&#45;stroke&#45;width: 2px; &#45;webkit&#45;text&#45;stroke&#45;color: #663399;"> -->
+          Gustavo Tavares
+        </h1>
+        <p style="text-align:center;color:#D15B5B;">Inspired by Dragonfruit
+        </p>
+      </div>
+    </div>
+  </div>
+
+      <div class="row">
+        <div class="small-12 medium-6 large-6 columns">
+          <div id="article">
 <h3 id="mistakeshappen.">Mistakes happen.</h3>
 
 <p>Mistakes happen to everybody. </p>
@@ -73,4 +111,27 @@
 
 <p>If you make an attitudinal mistake, fix it. There really isn&#8217;t too much of a difference. You just haven&#8217;t built up enough strength to know how to keep going. You will eventually, bit there will be many more times when you will feel like giving up before you reach a point of success.</p>
 </div>
-<%= render 'success_guide_menu' %>
+
+        </div>
+      </div>
+        <div class="footer">
+      <div>
+        <a href="http://github.com/ovatsug25">
+          <img alt="gitHub" src="/images/GitHub-Mark/PNG/GitHub-Mark-32px.png">
+        </a>
+        <a href="https://www.linkedin.com/in/ovatsug25">
+          <img alt="linkedIn" src="/images/LinkedIn-Logo/InBug-30px-R.png">
+        </a>
+        <a href="http://twitter.com/ovatsug25">
+          <img alt="twitter" src="/images/TwitterLogo/Twitter_logo_blue_32px.png">
+        </a>
+      </div>
+      <div id="copyright">
+        Gustavo Tavares 2013
+      </div>
+    </div>
+
+    </div>
+  </body>
+
+</html>

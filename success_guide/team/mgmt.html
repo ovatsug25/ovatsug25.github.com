@@ -1,4 +1,42 @@
-<div id="article">
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <<title></title>
+    <link href="/assets/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/foundation.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/workspose.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/main.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width" />
+    <script>
+      var angle = 0, img = document.getElementById('hylotron');
+      document.getElementById('hylotron').onclick = function() {
+        angle = (angle+90)%360;
+        img.className = "rotate"+angle;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+        <div class="top-bar purp-darkest" data-topbar>
+    <div class="row" data-topbar>
+      <div class="small-1 columns"><br/></div>
+      <div class="hylotron-120 small-1 columns"></div>
+      <div class="headline small-6 columns left">
+        <h1 style="font-family:andale mono;color: #A079C8; text-align:center;text-shadow: -1px 0 #663399, 0 1px #663399, 1px 0 #663399, 0 -1px #663399;">
+          <!-- &#45;webkit&#45;text&#45;stroke&#45;width: 2px; &#45;webkit&#45;text&#45;stroke&#45;color: #663399;"> -->
+          Gustavo Tavares
+        </h1>
+        <p style="text-align:center;color:#D15B5B;">Inspired by Dragonfruit
+        </p>
+      </div>
+    </div>
+  </div>
+
+      <div class="row">
+        <div class="small-12 medium-6 large-6 columns">
+          <div id="article">
 <p>Maintaing your team organized with everything you need to know is complicated. Inforamtion is hard to keep in sync. Fortunatley we live in the information age and the internet has many resources and applications that can keep your information in sync.</p>
 
 <p>Most of these tools charge money, however, they also have basic fermium editions which you can use infefintely until you reach a certain memory cap.</p>
@@ -18,4 +56,28 @@
  Basecamp is a comprehensive group management product that allows you to keep a calendar and create and assign tasks to members of your group. It also allows you to upload files to share and allows you to have a document you all can edit amongst yourselves.
  37signals, the company that hosts Basecamp also has a fabulous work chat room when you wan to convene as a group outside normal hours.</p>
 </div>
-<%= render 'success_guide_menu' %>
+
+
+        </div>
+      </div>
+        <div class="footer">
+      <div>
+        <a href="http://github.com/ovatsug25">
+          <img alt="gitHub" src="/images/GitHub-Mark/PNG/GitHub-Mark-32px.png">
+        </a>
+        <a href="https://www.linkedin.com/in/ovatsug25">
+          <img alt="linkedIn" src="/images/LinkedIn-Logo/InBug-30px-R.png">
+        </a>
+        <a href="http://twitter.com/ovatsug25">
+          <img alt="twitter" src="/images/TwitterLogo/Twitter_logo_blue_32px.png">
+        </a>
+      </div>
+      <div id="copyright">
+        Gustavo Tavares 2013
+      </div>
+    </div>
+
+    </div>
+  </body>
+
+</html>
