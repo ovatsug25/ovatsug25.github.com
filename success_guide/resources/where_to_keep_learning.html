@@ -1,29 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <<title></title>
-    <link href="/assets/css/normalize.css" rel="stylesheet" type="text/css">
-    <link href="/assets/css/foundation.min.css" rel="stylesheet" type="text/css">
-    <link href="/assets/css/workspose.css" rel="stylesheet" type="text/css">
-    <link href="/assets/css/main.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width" />
-    <script>
-      var angle = 0, img = document.getElementById('hylotron');
-      document.getElementById('hylotron').onclick = function() {
-        angle = (angle+90)%360;
-        img.className = "rotate"+angle;
-      }
-    </script>
-  </head>
+<head>
+    <title></title>
+  <link href="/assets/css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/foundation.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/workspose.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/main.css" rel="stylesheet" type="text/css">
+  <meta name="viewport" content="width=device-width" />
 
-  <body>
-    <div class="container">
-        <div class="top-bar purp-darkest" data-topbar>
+</head>
+
+<body>
+  <div class="container">
+      <div class="" data-topbar>
     <div class="row" data-topbar>
       <div class="small-1 columns"><br/></div>
-      <div class="hylotron-120 small-1 columns"></div>
-      <div class="headline small-6 columns left">
+      <!-- <div class="hylotron&#45;120 small&#45;1 columns"></div> -->
+      <div class="headline small-12 medium-12 large-12 columns left">
         <h1 style="font-family:andale mono;color: #A079C8; text-align:center;text-shadow: -1px 0 #663399, 0 1px #663399, 1px 0 #663399, 0 -1px #663399;">
           <!-- &#45;webkit&#45;text&#45;stroke&#45;width: 2px; &#45;webkit&#45;text&#45;stroke&#45;color: #663399;"> -->
           Gustavo Tavares
@@ -34,9 +28,9 @@
     </div>
   </div>
 
-      <div class="row">
-        <div class="small-12 medium-6 large-6 columns">
-          <div id="article">
+    <div class="row">
+      <div class="small-12 medium-6 large-6 columns">
+        <div id="article">
 <h1 id="foreword">So much to learn!</h1>
 
 <p>Many people who program and build something like a robot become different people towards the end of the process. Having made something out of nothing, you will begin to realize that the world around us is our creation and that we can choose to keep building on top of it. Does this excite you? Well you are in luck. Here are some links where you can continue to learn about programming, entrepreneurship and creation, and of course, ROBOTS!
@@ -228,10 +222,20 @@ The following is a list of links of classes and tutorials you can look into, pot
 </ul>
 </div>
 
-        </div>
       </div>
-        <div class="footer">
-      <div>
+    </div>
+
+    <div class="row">
+          <div class="footer row">
+      <div class="right small-12 medium-6 columns">
+        Gustavo Tavares 2014
+        - Built with
+        <a href="">
+          Middleman.
+          <!-- <img width="32" height="32" alt="Middleman" src="/images/mm&#45;blue&#45;w&#45;text.svg"> -->
+        </a>
+      </div>
+      <div class="left small-12 medium-6 columns">
         <a href="http://github.com/ovatsug25">
           <img alt="gitHub" src="/images/GitHub-Mark/PNG/GitHub-Mark-32px.png">
         </a>
@@ -242,12 +246,11 @@ The following is a list of links of classes and tutorials you can look into, pot
           <img alt="twitter" src="/images/TwitterLogo/Twitter_logo_blue_32px.png">
         </a>
       </div>
-      <div id="copyright">
-        Gustavo Tavares 2013
-      </div>
     </div>
+  </div>
 
     </div>
-  </body>
+  </div>
+</body>
 
 </html>

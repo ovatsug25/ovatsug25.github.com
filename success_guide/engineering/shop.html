@@ -1,29 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <<title></title>
-    <link href="/assets/css/normalize.css" rel="stylesheet" type="text/css">
-    <link href="/assets/css/foundation.min.css" rel="stylesheet" type="text/css">
-    <link href="/assets/css/workspose.css" rel="stylesheet" type="text/css">
-    <link href="/assets/css/main.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width" />
-    <script>
-      var angle = 0, img = document.getElementById('hylotron');
-      document.getElementById('hylotron').onclick = function() {
-        angle = (angle+90)%360;
-        img.className = "rotate"+angle;
-      }
-    </script>
-  </head>
+<head>
+    <title></title>
+  <link href="/assets/css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/foundation.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/workspose.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/main.css" rel="stylesheet" type="text/css">
+  <meta name="viewport" content="width=device-width" />
 
-  <body>
-    <div class="container">
-        <div class="top-bar purp-darkest" data-topbar>
+</head>
+
+<body>
+  <div class="container">
+      <div class="" data-topbar>
     <div class="row" data-topbar>
       <div class="small-1 columns"><br/></div>
-      <div class="hylotron-120 small-1 columns"></div>
-      <div class="headline small-6 columns left">
+      <!-- <div class="hylotron&#45;120 small&#45;1 columns"></div> -->
+      <div class="headline small-12 medium-12 large-12 columns left">
         <h1 style="font-family:andale mono;color: #A079C8; text-align:center;text-shadow: -1px 0 #663399, 0 1px #663399, 1px 0 #663399, 0 -1px #663399;">
           <!-- &#45;webkit&#45;text&#45;stroke&#45;width: 2px; &#45;webkit&#45;text&#45;stroke&#45;color: #663399;"> -->
           Gustavo Tavares
@@ -34,9 +28,9 @@
     </div>
   </div>
 
-      <div class="row">
-        <div class="small-12 medium-6 large-6 columns">
-          <div id="article">
+    <div class="row">
+      <div class="small-12 medium-6 large-6 columns">
+        <div id="article">
 <p>The author of this guide is a very inexperienced shop worker. I do not know the jargon of the machine shop. I also do no really know how to build anything with it.</p>
 
 <p>Despite that, I compiled a list of link, presented in the order in which they will probably be most useful. MIT has an amazing set of walkthrough through a shop and I suggest you pay attention. A mistake in the shop could literally cost you your finger.</p>
@@ -60,10 +54,20 @@
 
 </div>
 
-        </div>
       </div>
-        <div class="footer">
-      <div>
+    </div>
+
+    <div class="row">
+          <div class="footer row">
+      <div class="right small-12 medium-6 columns">
+        Gustavo Tavares 2014
+        - Built with
+        <a href="">
+          Middleman.
+          <!-- <img width="32" height="32" alt="Middleman" src="/images/mm&#45;blue&#45;w&#45;text.svg"> -->
+        </a>
+      </div>
+      <div class="left small-12 medium-6 columns">
         <a href="http://github.com/ovatsug25">
           <img alt="gitHub" src="/images/GitHub-Mark/PNG/GitHub-Mark-32px.png">
         </a>
@@ -74,12 +78,11 @@
           <img alt="twitter" src="/images/TwitterLogo/Twitter_logo_blue_32px.png">
         </a>
       </div>
-      <div id="copyright">
-        Gustavo Tavares 2013
-      </div>
     </div>
+  </div>
 
     </div>
-  </body>
+  </div>
+</body>
 
 </html>
