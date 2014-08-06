@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Why of Programming and Car Maintenance</title>
+  <link href="/assets/css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/foundation.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/workspose.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/main.css" rel="stylesheet" type="text/css">
+  <meta name="viewport" content="width=device-width" />
+
+</head>
+
+<body>
+  <div class="container">
+      <div class="" data-topbar>
+    <div class="row" data-topbar>
+      <div class="small-1 columns"><br/></div>
+      <!-- <div class="hylotron&#45;120 small&#45;1 columns"></div> -->
+      <div class="headline small-12 medium-12 large-12 columns left">
+        <h1 style="font-family:andale mono;color: #A079C8; text-align:center;text-shadow: -1px 0 #663399, 0 1px #663399, 1px 0 #663399, 0 -1px #663399;">
+          <!-- &#45;webkit&#45;text&#45;stroke&#45;width: 2px; &#45;webkit&#45;text&#45;stroke&#45;color: #663399;"> -->
+          Gustavo Tavares
+        </h1>
+        <p style="text-align:center;color:#D15B5B;">Inspired by Dragonfruit
+        </p>
+      </div>
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="small-12 medium-6 large-6 columns">
+        <h1 id="my-why-of-programming-and-car-maintenance">My Why of Programming and Car Maintenance</h1>
+
+<p>I program to save time. If you are a non-programmer, this may not seem as obvious to you. Programmers are usually talked about start-up ideas and understood through products like Facebook and Google. The reality for me is a little bit different.</p>
+
+<p>In my quest to purchase a car, I came upon this <a href="http://bmw.e30tuner.com/my318is_maintlog.php">table</a> which details the maintenance costs for a particular BMW E30. I was trying to peg an estimate as to how much this car would cost me in total. A non-programmer would look at this and would spend 5-10 minutes doing a copy paste. It could be over that if this person does not know Excel shortcuts. Still, the work is repetive and perhaps a little dull.</p>
+
+<p>As a programmer, this took on the order of five minutes, felt intellectually engaging, and there was very little room for a mistake. Let me walk you through my code.</p>
+
+<p>First, I grab all the maintenance dollar. Because I viewed the source or blueprint for how the page is written, I realized that all these dollar numbers were associated were of this type (or class for the programmers out there): <code>maint_icst</code>.</p>
+
+<p>I then told the computer to collect these in a list for me:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>maintElements = document.getElementsByClassName("maint_icst")
+</pre></td></tr></tbody></table>
+</div>
+
+<p>The list looks something like this:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13</pre></td><td class="code"><pre>[
+&lt;li class=​"maint_icst"&gt;​Cost&lt;/li&gt;​
+,
+&lt;li class=​"maint_icst"&gt;​…​&lt;/li&gt;​
+, 
+&lt;li class=​"maint_icst"&gt;​$0​&lt;/li&gt;​
+, 
+&lt;li class=​"maint_icst"&gt;​$20​&lt;/li&gt;​
+, 
+&lt;li class=​"maint_icst"&gt;​N/A​&lt;/li&gt;​
+, 
+&lt;li class=​"maint_icst"&gt;​$2000​&lt;/li&gt;​
+]
+</pre></td></tr></tbody></table>
+</div>
+
+<p>It's pretty easy to tell that <code>maint_icst</code> is in all of them, but why does it pull up this <code>&lt;li class="maint_icst"&gt;</code> at the beginning and <code>&lt;/li&gt;</code> at the end? This is html and is used as a way of structuring the page. The li, if you will, is a type of structure in HTML in the same way a plank of wood is part of the structure for a house.</p>
+
+<p>Unlike the house, the content is sandwiches between these two planks of wood. This is like the wood in a house. The <code>&lt;li ...&gt;</code> is the plank of wood at the front of the house, and the <code>&lt;/li&gt;</code> is the plank of wood at the back of the house. All the good stuff is sandwiched in bewteen.</p>
+
+<p>In this case the good stuff is text. This next line shows you how to extract the text from between these planks of wood.</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>maintCostsList = Array.prototype.map.call(maintElements, function(e){return e.textContent})
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Map allows us to work on each element between the two pairs of planks on a case by case basis. The code is a little bit advanced here, but the idea is pretty simple. Keep going and revisit the code again. It's hard! But I'm pretty sure you'll get it soon. Here is what we pull out with that line:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>["Cost", "...", "$0", "$20", "N/A", "$2000", ...]
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Notice one problem though. And this is where computers are a little finicky. There is text: <code>Cost</code>, an ellipsis: <code>...</code> and a <code>N/A</code> in the code. If we wanted to add these together, we would have to convert these to. Because of their nature, we can assume it is <code>0</code>. Note, <code>Cost + 2 = ???</code> unless <code>Cost</code> is defined as something in algebra. This next line is how the computer makes sure that we only have a number to interpret.</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>parseFloat(e.textContent.replace('$','')
+</pre></td></tr></tbody></table>
+</div>
+
+<p>We need to pair this with map so that we can do this for each bill in the maintenance costs.</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>maintCostsList2 = Array.prototype.map.call(maintCosts, function(e){return e.textContent.replace('$','')}
+</pre></td></tr></tbody></table>
+</div>
+
+<p>This is a pretty simple task though. Why can't we just do it in one step. It turns out we can! This next line does the last two tasks together.</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>maintCosts = Array.prototype.map.call(maintElements, function(e){return parseFloat(e.textContent.replace('$',''))})
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Here's the return.</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>[NaN, NaN, 0, 20, NaN, 2000, ...]
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Return in this case is a noun. It is also a list. Start thinking of return as a noun!</p>
+
+<p>Notice in the return that we have this <code>NaN</code> funny business. This is important.</p>
+
+<p>If we tried to go element by element and added all of these together, this would not work.</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre>total = 0
+Array.prototype.forEach.call(maintCostsList, function(e){total += e)}
+</pre></td></tr></tbody></table>
+</div>
+
+<p><code>NaN</code> stands for "not a number." The computer will assume that there is some value there though, and for the purposes of our sum, it will tell us it is <code>NaN</code> or <code>Not A Number</code> as well. This is called playing it safe. We need to explicitly tell the computer that it can add these together. Computers are dumb and can't understand that this <code>NaN</code>is not important and can be thrown away.</p>
+
+<p>Here we will call <code>filter</code> on the maintenance cost list again and throw away all those things which are not a number.</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>cleanArray = Array.prototype.filter.call(maintCostsList, function(e){return !isNaN(e)})
+</pre></td></tr></tbody></table>
+</div>
+
+<p>The return in this case is another list without <code>NaN</code>s.</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>[ 0, 20, 2000, ...]
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Now we can sum these together and get a real total number. First create a total variable like you did in algebra.</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>total = 0
+</pre></td></tr></tbody></table>
+</div>
+
+<p>And now use map and add it onto total one at a time.</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>Array.prototype.map.call(cleanArray, function(e){total += e})
+</pre></td></tr></tbody></table>
+</div>
+
+<p>You'll notice this returns a list.</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>[undefined, undefined, undefined, ...]
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Where is out total?</p>
+
+<p>Simple. Just type in total and it returns the value. When I did it the number was <code>10460</code>.</p>
+
+<p>If you want to actually see the <code>map</code> function at work…</p>
+
+<p>Reassign total to 0</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>total = 0
+</pre></td></tr></tbody></table>
+</div>
+
+<p>And recalculate but use add return inside the process you will use on each element.</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>Array.prototype.map.call(cleanArray, function(e){return total += e})
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Now you'll get something like:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>[ 0, 20, 2020, ...]
+</pre></td></tr></tbody></table>
+</div>
+
+<p>That's it!</p>
+
+<p>This is how I calculated everything using copy paste. The good thing is, if the webpage is updated, I don't need to go through copy paste again. I can just do it right in my browser. The process is easily adaptable to similar pages…just check out what they are using instead of <code>maint_icst</code>.</p>
+
+<p>Enjoy your efficiency!</p>
+
+      </div>
+    </div>
+
+    <div class="row">
+          <div class="footer row">
+      <div class="right small-12 medium-6 columns">
+        Gustavo Tavares 2014
+        - Built with
+        <a href="">
+          Middleman.
+          <!-- <img width="32" height="32" alt="Middleman" src="/images/mm&#45;blue&#45;w&#45;text.svg"> -->
+        </a>
+      </div>
+      <div class="left small-12 medium-6 columns">
+        <a href="http://github.com/ovatsug25">
+          <img alt="gitHub" src="/images/GitHub-Mark/PNG/GitHub-Mark-32px.png">
+        </a>
+        <a href="https://www.linkedin.com/in/ovatsug25">
+          <img alt="linkedIn" src="/images/LinkedIn-Logo/InBug-30px-R.png">
+        </a>
+        <a href="http://twitter.com/ovatsug25">
+          <img alt="twitter" src="/images/TwitterLogo/Twitter_logo_blue_32px.png">
+        </a>
+      </div>
+    </div>
+  </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
