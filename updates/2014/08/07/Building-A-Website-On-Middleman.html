@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Building a website w/ Middleman: The Unsaid</title>
+  <link href="/assets/css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/foundation.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/workspose.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/main.css" rel="stylesheet" type="text/css">
+  <meta name="viewport" content="width=device-width" />
+
+</head>
+
+<body>
+<div class="container">
+  <div class="row">
+    <div class="" data-topbar>
+  <div class="row" data-topbar>
+    <div class="small-1 columns"><br/></div>
+    <!-- <div class="hylotron&#45;120 small&#45;1 columns"></div> -->
+    <div class="headline small-12 medium-12 large-12 columns left">
+      <h1 style="font-family:andale mono;color: #A079C8; text-align:center;text-shadow: -1px 0 #663399, 0 1px #663399, 1px 0 #663399, 0 -1px #663399;">
+        <a href="/">
+          Gustavo Tavares
+        </a>
+      </h1>
+      <p style="text-align:center;">
+        <a href="/hylotron" style="color:#D15B5B;">
+        Inspired by Dragonfruit
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+      <div class="row">
+  <div class="small-12 medium-6 large-6 columns">
+    <blockquote>
+  <p>This article is taken from a talk I did at
+ <a href="http://frontendparty.com">Front End Party</a> in New Orleans on
+ Thursday, July 31, 2014.</p>
+</blockquote>
+
+<p>Middleman is fairly straightforward.</p>
+
+<p>You have a project directory which contains three things:</p>
+
+<ul>
+  <li><code>config.rb</code> file</li>
+  <li><code>source/</code> folder</li>
+  <li><code>build/</code> folder</li>
+</ul>
+
+<p>Files from the source folder are processed according to the directions
+from the config file and then put in the build folder.</p>
+
+<p>If you read my last post on Middleman, you will realize that this is a
+most basic of <code>Rake</code> scripts with the relevant templating options set
+in the config file, along with any minification, optimization, insertions
+you'd like specified there.</p>
+
+<p>Let's built a website and see how it works</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>middleman init sample-project
+</pre></td></tr></tbody></table>
+</div>
+
+<p>There we go! You've got a middleman project.</p>
+
+<h2 id="your-layouts-and-your-homepage">Your layouts and your homepage</h2>
+
+<p>The first thing you're likely to want is a homepage,
+and a template which will serve as a theme for a site.
+These are pretty standard requirements for any webpage these days.</p>
+
+<p>Let's set the layouts. We could do it like Jekyll and set
+the default layout to <code>false</code>:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>set :layout, false
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Or do something more sensible like:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>set :layout, "default"
+</pre></td></tr></tbody></table>
+</div>
+
+<p>These layout files will be found at whatever folder we set in:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>config[:layouts] = "path/to/folder"
+</pre></td></tr></tbody></table>
+</div>
+
+<p>We can also specify per page layouts:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12</pre></td><td class="code"><pre># With no layout
+page "/path/to/file.html", :layout =&gt; false
+
+# With alternative layout
+page "/path/to/file.html", :layout =&gt; :otherlayout
+
+# A path which all have the same layout
+with_layout :admin do
+  page "/admin/*"
+end
+# Or
+page "/other/folder/layout", :layout =&gt; :other_folder_layout
+</pre></td></tr></tbody></table>
+</div>
+
+<p>We can also do this in a files front matter like Jekyll requries:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>---
+layout: otherlayout
+---
+</pre></td></tr></tbody></table>
+</div>
+
+<blockquote>
+  <p>Note, at the time of this writing, Jekyll includes a layout declaration
+for every single file in their documentation. These aren't even organized
+by folder despite the fact that on the page they seem to warrant that structure.</p>
+</blockquote>
+
+<p>We are no ready to run <code>middleman build</code> command!</p>
+
+<h2 id="blogging-with-middleman-is-easier-and-more-powerful-than-jekyll">Blogging with Middleman is easier and more powerful than Jekyll</h2>
+
+<p>But what about blogging you say? How can we blog?</p>
+
+<p>Easily. Middleman has can be extented with the <code>middleman-blog</code> gem.
+Include it in your <code>Gemfile</code>, run the bundle command and add the following to
+your config.</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre>activate :blog do |blog|
+  blog.name = “blog”
+  blog.prefix = “blog”
+end
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Now any files in the <code>blog/</code> folder will be treated like any file in a
+Jekyll <code>_posts</code> folder.</p>
+
+<p>But Middleman outclasses Jekyll yet again. You can add other blogs with different
+names! Like the New York Times, you could have one blog for Nate Silver and
+another one for Paul Krugman!</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre></td><td class="code"><pre>activate :blog do |blog|
+  blog.name = "krugman"
+  blog.prefix = "krugman"
+end
+# Use the krugman/ folder.
+
+activate :blog do |blog|
+  blog.name = "nate_silver"
+  blog.prefix = "nate_silver"
+end
+# Use the nate_silver/ folder.
+</pre></td></tr></tbody></table>
+</div>
+
+<p>This makes it infinitley more scalabale than Jekyll.</p>
+
+<p>Our content strategy is pretty much figured out and can take on a basic folder
+struture. Tags and other options are available for the blog, and will be available
+throughout the entire site pretty soon. I suggest you check out the
+documentation for that though.</p>
+
+<blockquote>
+  <p>Note, if you want to begin a project as a blog, use the
+    middleman init [project] –template=blog
+command. This way, the "middleman-blog" gem is included automatically.</p>
+</blockquote>
+
+<h2 id="use-sass-compass-etc">Use SASS, Compass, etc.</h2>
+
+<p>Now that we have our content management figured out (that's is the most important
+thing right?!) we can begin to focus on style and interaction conviences.</p>
+
+<p>Fortunaltye Middleman builds these right in with its plug and play structure.
+Just type in these settings to your config file:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre>configure :build do
+  activate :minify_css
+  activate :minify_javascript
+end
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Your CSS and Javascript will be minified for production.</p>
+
+<p>Make sure you indicate the right foldes in the config file:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre>config[:css_dir] = "assets/stylesheets"
+config[:js_dir] = "assets/js"
+</pre></td></tr></tbody></table>
+</div>
+
+<p>And if you're a SASS guy, support for SASS is built right in.</p>
+
+<h2 id="deploy-strategy">Deploy strategy</h2>
+
+<p>Are you FTPing?</p>
+
+<p>Because if you are, all you need to do is upload the product of the home
+folder to your webserver. This is a static webpage that's being built.</p>
+
+<p>Do you want to use GitHub pages? This is a little bit more complicated
+but doable and still very easy.</p>
+
+<h4 id="github-pages-for-a-project">GitHub pages for a project</h4>
+
+<p>Let's start off with GitHub pages for a project.</p>
+
+<p>I like to do two things: create an orphan branch in my repository named Middleman.</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre>git checkout --orphan middleman
+rm $(ls)
+# If your "ls" is set to something like "ls -l",
+# then you will delete your Git repository too.
+# You can't "rm -rf *" or you will delete your Git repository as well.
+# Don't do that.
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Run <code>middleman init</code> with no project folder tag. This will create the middleman
+structure in the current repository.</p>
+
+<p>Add  <code>gem 'middleman-gh-pages'</code> to your Gemfile and
+<code>require 'middleman-gh-pages'</code> to your Rakefile. You might have to create
+the Rakefile. Chances are you might not have one.</p>
+
+<p>Now, when you run <code>rake publish</code>, an orphan branch named "gh-pages"
+will be created or updated with a new build. The specific Rake task can be read here:
+https://github.com/neo/middleman-gh-pages/blob/master/lib/middleman-gh-pages/tasks/gh-pages.rake
+and is pretty easy to understand.</p>
+
+<p>Check it out!</p>
+
+<h4 id="github-pages-for-a-homepage">GitHub pages for a homepage</h4>
+
+<p>To use Middleman for your usename page the process is a little more tricky.
+GitHub is built to work with Jekyll or with a static site that has a <code>.nojekyll</code>
+file.</p>
+
+<p>If our main middlemand folder is the root of our homepage, we won't be able to
+accomplish our goal because the site lives inside <code>build/</code> folder. It would be
+really clunky to have an <code>index.html</code> file in main folder with links out to the
+build, and it wouldn't make sense to just use the main folder as our build folder.</p>
+
+<p>To use Github as my main server for my personal webpage, I used a little hack.</p>
+
+<p>First of all, build a middleman project and title it in this manner:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>middleman init [username].github.com.builder
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Add <code>[username].github.com</code> to your <code>.gitignore</code></p>
+
+<p>Make a folder like so:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>mkdir [username].github.com
+</pre></td></tr></tbody></table>
+</div>
+
+<p>And specify this as your build folder in <code>config.rb</code>:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>config[:build_dir] = '[username].github.com'
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Set the build folder as your webpage repository
+(it's already been titled appropiatley ;), and publish with ease!</p>
+
+<p>You can even build in hooks to your middleman build command so that your website
+will be pushed to GitHub in one go.</p>
+
+<p>Middleman really is worth it. It's the perfect amount of structure for a website,
+which makes it easy and a joy to use.</p>
+
+<p>Stay tuned for another article for even more developer tricks on how to use
+Middleman.</p>
+
+  </div>
+</div>
+
+        <div class="footer row">
+      <div class="right small-12 medium-6 columns">
+        Gustavo Tavares 2014
+        - Built with
+        <a href="">
+          Middleman.
+          <!-- <img width="32" height="32" alt="Middleman" src="/images/mm&#45;blue&#45;w&#45;text.svg"> -->
+        </a>
+      </div>
+      <div class="left small-12 medium-6 columns">
+        <a href="http://github.com/ovatsug25">
+          <img alt="gitHub" src="/images/GitHub-Mark/PNG/GitHub-Mark-32px.png">
+        </a>
+        <a href="https://www.linkedin.com/in/ovatsug25">
+          <img alt="linkedIn" src="/images/LinkedIn-Logo/InBug-30px-R.png">
+        </a>
+        <a href="http://twitter.com/ovatsug25">
+          <img alt="twitter" src="/images/TwitterLogo/Twitter_logo_blue_32px.png">
+        </a>
+      </div>
+    </div>
+  </div>
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0024/7834.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+
+  </div>
+</div>
+</body>
+
+</html>
