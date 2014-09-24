@@ -5,7 +5,7 @@
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,300,400italic,400,600italic,600,700italic,700,800italic,800" rel="stylesheet" type="text/css">
   <title>My Why of Programming and Car Maintenance</title>
   <link href="/assets/css/normalize.css" rel="stylesheet" type="text/css">
-  <link href="/assets/css/foundation.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/foundation.min.css" rel="stylesheet" type="text/css">
   <link href="/assets/css/workspose.css" rel="stylesheet" type="text/css">
   <link href="/assets/css/main.css" rel="stylesheet" type="text/css">
   <meta name="viewport" content="width=device-width" />
@@ -62,25 +62,12 @@ Still, the work is repetive and perhaps a little dull.</p>
 
 <p>I then told the computer to collect these in a list for me:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>maintElements = document.getElementsByClassName("maint_icst")
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>maintElements = document.getElementsByClassName("maint_icst")
+</code></pre>
 
 <p>The list looks something like this:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13</pre></td><td class="code"><pre>[
+<pre><code>[
 &lt;li class=​"maint_icst"&gt;​Cost&lt;/li&gt;​
 ,
 &lt;li class=​"maint_icst"&gt;​…​&lt;/li&gt;​
@@ -93,8 +80,7 @@ Still, the work is repetive and perhaps a little dull.</p>
 ,
 &lt;li class=​"maint_icst"&gt;​$2000​&lt;/li&gt;​
 ]
-</pre></td></tr></tbody></table>
-</div>
+</code></pre>
 
 <p>It's pretty easy to tell that <code>maint_icst</code> is in all of them, but why does it pull up this <code>&lt;li class="maint_icst"&gt;</code> at the beginning and <code>&lt;/li&gt;</code> at the end? This is html and is used as a way of structuring the page. The li, if you will, is a type of structure in HTML in the same way a plank of wood is part of the structure for a house.</p>
 
@@ -102,39 +88,33 @@ Still, the work is repetive and perhaps a little dull.</p>
 
 <p>In this case the good stuff is text. This next line shows you how to extract the text from between these planks of wood.</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>maintCostsList = Array.prototype.map.call(maintElements, function(e){return e.textContent})
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>maintCostsList = Array.prototype.map.call(maintElements, function(e){return e.textContent})
+</code></pre>
 
 <p>Map allows us to work on each element between the two pairs of planks on a case by case basis. The code is a little bit advanced here, but the idea is pretty simple. Keep going and revisit the code again. It's hard! But I'm pretty sure you'll get it soon. Here is what we pull out with that line:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>["Cost", "...", "$0", "$20", "N/A", "$2000", ...]
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>["Cost", "...", "$0", "$20", "N/A", "$2000", ...]
+</code></pre>
 
 <p>Notice one problem though. And this is where computers are a little finicky. There is text: <code>Cost</code>, an ellipsis: <code>...</code> and a <code>N/A</code> in the code. If we wanted to add these together, we would have to convert these to. Because of their nature, we can assume it is <code>0</code>. Note, <code>Cost + 2 = ???</code> unless <code>Cost</code> is defined as something in algebra. This next line is how the computer makes sure that we only have a number to interpret.</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>parseFloat(e.textContent.replace('$','')
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>parseFloat(e.textContent.replace('$','')
+</code></pre>
 
 <p>We need to pair this with map so that we can do this for each bill in the maintenance costs.</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>maintCostsList2 = Array.prototype.map.call(maintCosts, function(e){return e.textContent.replace('$','')}
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>maintCostsList2 = Array.prototype.map.call(maintCosts, function(e){return e.textContent.replace('$','')}
+</code></pre>
 
 <p>This is a pretty simple task though. Why can't we just do it in one step. It turns out we can! This next line does the last two tasks together.</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>maintCosts = Array.prototype.map.call(maintElements, function(e){return parseFloat(e.textContent.replace('$',''))})
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>maintCosts = Array.prototype.map.call(maintElements, function(e){return parseFloat(e.textContent.replace('$',''))})
+</code></pre>
 
 <p>Here's the return.</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>[NaN, NaN, 0, 20, NaN, 2000, ...]
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>[NaN, NaN, 0, 20, NaN, 2000, ...]
+</code></pre>
 
 <p>Return in this case is a noun. It is also a list. Start thinking of return as a noun!</p>
 
@@ -142,43 +122,36 @@ Still, the work is repetive and perhaps a little dull.</p>
 
 <p>If we tried to go element by element and added all of these together, this would not work.</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>total = 0
+<pre><code>total = 0
 Array.prototype.forEach.call(maintCostsList, function(e){total += e)}
-</pre></td></tr></tbody></table>
-</div>
+</code></pre>
 
 <p><code>NaN</code> stands for "not a number." The computer will assume that there is some value there though, and for the purposes of our sum, it will tell us it is <code>NaN</code> or <code>Not A Number</code> as well. This is called playing it safe. We need to explicitly tell the computer that it can add these together. Computers are dumb and can't understand that this <code>NaN</code>is not important and can be thrown away.</p>
 
 <p>Here we will call <code>filter</code> on the maintenance cost list again and throw away all those things which are not a number.</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>cleanArray = Array.prototype.filter.call(maintCostsList, function(e){return !isNaN(e)})
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>cleanArray = Array.prototype.filter.call(maintCostsList, function(e){return !isNaN(e)})
+</code></pre>
 
 <p>The return in this case is another list without <code>NaN</code>s.</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>[ 0, 20, 2000, ...]
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>[ 0, 20, 2000, ...]
+</code></pre>
 
 <p>Now we can sum these together and get a real total number. First create a total variable like you did in algebra.</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>total = 0
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>total = 0
+</code></pre>
 
 <p>And now use map and add it onto total one at a time.</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>Array.prototype.map.call(cleanArray, function(e){total += e})
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>Array.prototype.map.call(cleanArray, function(e){total += e})
+</code></pre>
 
 <p>You'll notice this returns a list.</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>[undefined, undefined, undefined, ...]
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>[undefined, undefined, undefined, ...]
+</code></pre>
 
 <p>Where is out total?</p>
 
@@ -188,21 +161,18 @@ Array.prototype.forEach.call(maintCostsList, function(e){total += e)}
 
 <p>Reassign total to 0</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>total = 0
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>total = 0
+</code></pre>
 
 <p>And recalculate but use add return inside the process you will use on each element.</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>Array.prototype.map.call(cleanArray, function(e){return total += e})
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>Array.prototype.map.call(cleanArray, function(e){return total += e})
+</code></pre>
 
 <p>Now you'll get something like:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>[ 0, 20, 2020, ...]
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>[ 0, 20, 2020, ...]
+</code></pre>
 
 <p>That's it!</p>
 

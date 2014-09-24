@@ -5,7 +5,7 @@
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,300,400italic,400,600italic,600,700italic,700,800italic,800" rel="stylesheet" type="text/css">
   <title>Building a website on Middleman: Easier and Better than Jekyll</title>
   <link href="/assets/css/normalize.css" rel="stylesheet" type="text/css">
-  <link href="/assets/css/foundation.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/foundation.min.css" rel="stylesheet" type="text/css">
   <link href="/assets/css/workspose.css" rel="stylesheet" type="text/css">
   <link href="/assets/css/main.css" rel="stylesheet" type="text/css">
   <meta name="viewport" content="width=device-width" />
@@ -69,9 +69,8 @@ you'd like specified there.</p>
 
 <p>Let's built a website and see how it works</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>middleman init sample-project
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>middleman init sample-project
+</code></pre>
 
 <p>There we go! You've got a middleman project.</p>
 
@@ -84,36 +83,22 @@ These are pretty standard requirements for any webpage these days.</p>
 <p>Let's set the layouts. We could do it like Jekyll and set
 the default layout to <code>false</code>:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>set :layout, false
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>set :layout, false
+</code></pre>
 
 <p>Or do something more sensible like:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>set :layout, "default"
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>set :layout, "default"
+</code></pre>
 
 <p>These layout files will be found at whatever folder we set in:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>config[:layouts] = "path/to/folder"
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>config[:layouts] = "path/to/folder"
+</code></pre>
 
 <p>We can also specify per page layouts:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12</pre></td><td class="code"><pre># With no layout
+<pre><code># With no layout
 page "/path/to/file.html", :layout =&gt; false
 
 # With alternative layout
@@ -125,18 +110,14 @@ with_layout :admin do
 end
 # Or
 page "/other/folder/layout", :layout =&gt; :other_folder_layout
-</pre></td></tr></tbody></table>
-</div>
+</code></pre>
 
 <p>We can also do this in a files front matter like Jekyll requries:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3</pre></td><td class="code"><pre>---
+<pre><code>---
 layout: otherlayout
 ---
-</pre></td></tr></tbody></table>
-</div>
+</code></pre>
 
 <blockquote>
   <p>Note, at the time of this writing, Jekyll includes a layout declaration
@@ -154,15 +135,11 @@ by folder despite the fact that on the page they seem to warrant that structure.
 Include it in your <code>Gemfile</code>, run the bundle command and add the following to
 your config.</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4</pre></td><td class="code"><pre>activate :blog do |blog|
+<pre><code>activate :blog do |blog|
   blog.name = “blog”
   blog.prefix = “blog”
 end
-</pre></td></tr></tbody></table>
-</div>
+</code></pre>
 
 <p>Now any files in the <code>blog/</code> folder will be treated like any file in a
 Jekyll <code>_posts</code> folder.</p>
@@ -171,17 +148,7 @@ Jekyll <code>_posts</code> folder.</p>
 names! Like the New York Times, you could have one blog for Nate Silver and
 another one for Paul Krugman!</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11</pre></td><td class="code"><pre>activate :blog do |blog|
+<pre><code>activate :blog do |blog|
   blog.name = "krugman"
   blog.prefix = "krugman"
 end
@@ -192,8 +159,7 @@ activate :blog do |blog|
   blog.prefix = "nate_silver"
 end
 # Use the nate_silver/ folder.
-</pre></td></tr></tbody></table>
-</div>
+</code></pre>
 
 <p>This makes it infinitley more scalabale than Jekyll.</p>
 
@@ -216,25 +182,19 @@ thing right?!) we can begin to focus on style and interaction conviences.</p>
 <p>Fortunaltye Middleman builds these right in with its plug and play structure.
 Just type in these settings to your config file:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4</pre></td><td class="code"><pre>configure :build do
+<pre><code>configure :build do
   activate :minify_css
   activate :minify_javascript
 end
-</pre></td></tr></tbody></table>
-</div>
+</code></pre>
 
 <p>Your CSS and Javascript will be minified for production.</p>
 
 <p>Make sure you indicate the right foldes in the config file:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>config[:css_dir] = "assets/stylesheets"
+<pre><code>config[:css_dir] = "assets/stylesheets"
 config[:js_dir] = "assets/js"
-</pre></td></tr></tbody></table>
-</div>
+</code></pre>
 
 <p>And if you're a SASS guy, support for SASS is built right in.</p>
 
@@ -254,19 +214,13 @@ but doable and still very easy.</p>
 
 <p>I like to do two things: create an orphan branch in my repository named Middleman.</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6</pre></td><td class="code"><pre>git checkout --orphan middleman
+<pre><code>git checkout --orphan middleman
 rm $(ls)
 # If your "ls" is set to something like "ls -l",
 # then you will delete your Git repository too.
 # You can't "rm -rf *" or you will delete your Git repository as well.
 # Don't do that.
-</pre></td></tr></tbody></table>
-</div>
+</code></pre>
 
 <p>Run <code>middleman init</code> with no project folder tag. This will create the middleman
 structure in the current repository.</p>
@@ -297,23 +251,20 @@ build, and it wouldn't make sense to just use the main folder as our build folde
 
 <p>First of all, build a middleman project and title it in this manner:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>middleman init [username].github.com.builder
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>middleman init [username].github.com.builder
+</code></pre>
 
 <p>Add <code>[username].github.com</code> to your <code>.gitignore</code></p>
 
 <p>Make a folder like so:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>mkdir [username].github.com
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>mkdir [username].github.com
+</code></pre>
 
 <p>And specify this as your build folder in <code>config.rb</code>:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>config[:build_dir] = '[username].github.com'
-</pre></td></tr></tbody></table>
-</div>
+<pre><code>config[:build_dir] = '[username].github.com'
+</code></pre>
 
 <p>Set the build folder as your webpage repository
 (it's already been titled appropiatley ;), and publish with ease!</p>
